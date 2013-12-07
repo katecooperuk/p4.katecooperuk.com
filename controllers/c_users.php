@@ -33,7 +33,7 @@ class users_controller extends base_controller {
 		$this->template->content->user_name = $user_name;
 
 		# Render View
-		echo $this-template;
+		echo $this->template;
     
     }
 
