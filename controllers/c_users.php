@@ -18,10 +18,12 @@ class users_controller extends base_controller {
 
     public function p_signup() {
 
-        # Dump out the results of POST to see what the form submitted
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';          
+    	# Insert this user into the database
+		$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+
+		# For now, just confirm they've signed up - 
+		# You should eventually make a proper View for this
+		echo 'You\'re signed up';       
     }
 
 } # eoc
