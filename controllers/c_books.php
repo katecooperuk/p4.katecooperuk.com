@@ -1,7 +1,13 @@
 <?php
 class books_controller extends base_controller {
-    public function view($books_id) {         
-        # Code here to grab the books from the database using the $books_id
-    } 
+    
+   public function __construct() {
+        parent::__construct();
+        echo "books_controller construct called<br><br>";
+    }
+    
+    public function index() {
+        echo "This is books page";
+    }
 }
 ?>
