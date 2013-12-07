@@ -47,14 +47,16 @@ class users_controller extends base_controller {
 	Login Function
 	-------------------------------------------------------------------------------------------------*/
 	
-	public function login() {
+	public function login($error = NULL) {
 
-    # Setup view
-        $this->template->content = View::instance('v_users_login');
-        $this->template->title   = "Login";
+		# Set up the view
+		$this->template->content = View::instance("v_users_login");
 
-    # Render template
-        echo $this->template;
+		# Pass data to the view
+		$this->template->content->error = $error;
+
+		# Render the view
+		echo $this->template;
 	}
 	
 	/*-------------------------------------------------------------------------------------------------
@@ -81,24 +83,13 @@ class users_controller extends base_controller {
 		# If we didn't find a matching token in the database, it means login failed
 		if(!$token) {
 
-        	# Send them back to the login page
-			Router::redirect("/users/login/");
-
-		# But if we did, login succeeded!
-     
+        	# Note the addition of the parameter "error"
+			Router::redirect("/users/login/error"); 
 		} 
     
 		else {
 
-        	/* 
-			Store this token in a cookie using setcookie()
-			Important Note: *Nothing* else can echo to the page before setcookie is called
-			Not even one single white space.
-			param 1 = name of the cookie
-			param 2 = the value of the cookie
-			param 3 = when to expire
-			param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
-			*/
+			# Store token in cookie: (name, value, expiration, path)
         	setcookie("token", $token, strtotime('+1 year'), '/');
 
 			# Send them to the main page - or whever you want them to go
@@ -126,7 +117,28 @@ class users_controller extends base_controller {
 		# Render template
 		echo $this->template;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------
+	Logout Function
+	-------------------------------------------------------------------------------------------------*/
 
+    public function logout() {
+    
+    	 # Generate and save a new token for next login
+		 $new_token = sha1(TOKEN_SALT.$this->user->email.Utils::generate_random_string());
 
+		 # Create the data array we'll use with the update method
+		 # In this case, we're only updating one field, so our array only has one entry
+		 $data = Array("token" => $new_token);
+
+		 # Do the update
+		 DB::instance(DB_NAME)->update("users", $data, "WHERE token = '".$this->user->token."'");
+
+		 # Delete their token cookie by setting it to a date in the past - effectively logging them out
+		 setcookie("token", "", strtotime('-1 year'), '/');
+
+		 # Send them back to the main index.
+		 Router::redirect("/");
+	}
 
 } # EOC
