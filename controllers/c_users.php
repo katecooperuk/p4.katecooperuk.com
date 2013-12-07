@@ -24,15 +24,16 @@ class users_controller extends base_controller {
 
     public function profile($user_name = NULL) {
 
-        # Create a new View instance
-		# Do *not* include .php with the view name
-		$view = View::instance('v_users_profile');
+		$this->template->content = View::instance('v_users_profile');
+		
+		# $title is another variable used in _v_template to set the <title> of the page
+		$this->template->title = "Profile";
 
-		# Pass information to the view instance
-		$view->user_name = $user_name;
+		# Pass information to the view fragment
+		$this->template->content->user_name = $user_name;
 
 		# Render View
-		echo $view;
+		echo $this-template;
     
     }
 
