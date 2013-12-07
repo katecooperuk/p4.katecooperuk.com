@@ -15,8 +15,11 @@ class users_controller extends base_controller {
             $this->template->content = View::instance('v_users_signup');
             $this->template->title   = "Sign Up";
 
-        # Render template
-            echo $this->template;
+        # Pass data to the view
+		$this->template->content->error = $error;
+        
+        # Render the view (localhost/users/signup)
+        echo $this->template;
     }
 
 	/*-------------------------------------------------------------------------------------------------
@@ -36,7 +39,7 @@ class users_controller extends base_controller {
 		$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
 
 		# Insert this user into the database 
-		$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
+		$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
 		# For now, just confirm they've signed up - 
 		# You should eventually make a proper View for this
