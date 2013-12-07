@@ -17,7 +17,6 @@ class users_controller extends base_controller {
 
         # Render template
             echo $this->template;
-
     }
 
 	/*-------------------------------------------------------------------------------------------------
@@ -56,7 +55,6 @@ class users_controller extends base_controller {
 
     # Render template
         echo $this->template;
-	
 	}
 	
 	/*-------------------------------------------------------------------------------------------------
@@ -88,26 +86,47 @@ class users_controller extends base_controller {
 
 		# But if we did, login succeeded!
      
-    } 
+		} 
     
-    else {
+		else {
 
-        /* 
-        Store this token in a cookie using setcookie()
-        Important Note: *Nothing* else can echo to the page before setcookie is called
-        Not even one single white space.
-        param 1 = name of the cookie
-        param 2 = the value of the cookie
-        param 3 = when to expire
-        param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
-        */
-        setcookie("token", $token, strtotime('+1 year'), '/');
+        	/* 
+			Store this token in a cookie using setcookie()
+			Important Note: *Nothing* else can echo to the page before setcookie is called
+			Not even one single white space.
+			param 1 = name of the cookie
+			param 2 = the value of the cookie
+			param 3 = when to expire
+			param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
+			*/
+        	setcookie("token", $token, strtotime('+1 year'), '/');
 
-        # Send them to the main page - or whever you want them to go
-        Router::redirect("/");
+			# Send them to the main page - or whever you want them to go
+			Router::redirect("/");
+		}
+	
+	}
+	
+	/*-------------------------------------------------------------------------------------------------
+	Profile Function
+	-------------------------------------------------------------------------------------------------*/
+	public function profile() {
 
-    }
+    	# If user is blank, they're not logged in; redirect them to the login page
+		if(!$this->user) {
+        	Router::redirect('/users/login');
+		}
 
-}
+		# If they weren't redirected away, continue:
+
+		# Setup view
+		$this->template->content = View::instance('v_users_profile');
+		$this->template->title   = "Profile of".$this->user->first_name;
+
+		# Render template
+		echo $this->template;
+	}
+
+
 
 } # EOC
