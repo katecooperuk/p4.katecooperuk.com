@@ -16,13 +16,13 @@ class index_controller extends base_controller {
 		
 		# Any method that loads a view will commonly start with this
 		# First, set the content of the template with a view file
-			$this->template->content = View::instance('v_index_index');
+		$this->template->content = View::instance('v_index_index');
 			
 		# Now set the <title> tag
-			$this->template->title = "Welcome to ChatterBox Book Club";
+		$this->template->title = 'Welcome to ChatterBox';
 	      					     		
 		# Render the view
-			echo $this->template;
+		echo $this->template;
 
 	} # End of method
 	
