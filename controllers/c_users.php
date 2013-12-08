@@ -9,7 +9,7 @@ class users_controller extends base_controller {
 	Signup Function
 	-------------------------------------------------------------------------------------------------*/
     
-    public function signup($error = NULL) {
+    public function signup() {
 
         # Setup view
             $this->template->content = View::instance('v_users_signup');
@@ -28,49 +28,22 @@ class users_controller extends base_controller {
 
     public function p_signup() {
 
-    	# Sanitize Data Entry
-    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
-    	
-    	# Set up Email / Password Query
-    	$q = "SELECT * FROM users WHERE email = '".$_POST['email']."'"; 
-    	
-    	# Query Database
-    	$user_exists = DB::instance(DB_NAME)->select_rows($q);
-    	
-    		# Check if email exists in database
-    		if(!empty($user_exists)){
-    		
-    			# Send to Login page
-    			# Pass error message along - to the login page - indicate 'user-exists' error
-	    		Router::redirect('/users/login/user-exists');
-    		}
-    		
-    		# Check if fields are blank
-    		elseif(empty($_POST['email']['password'])) {
-			
-				# Send to Login page
-				# Pass error message along - to the login page - indicate 'user-exists' error
-				Router::redirect('/users/signup/blank-fields'); 
-			}
-    	
-    	else {
-    	
-    		# More data we want stored with the user
-			$_POST['created']  = Time::now();
-			$_POST['modified'] = Time::now();
+    	# More data we want stored with the user
+		$_POST['created']  = Time::now();
+		$_POST['modified'] = Time::now();
 
-			# Encrypt the password  
-			$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
+		# Encrypt the password  
+		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
 
-			# Create an encrypted token via their email address and a random string
-			$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
+		# Create an encrypted token via their email address and a random string
+		$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
 
-			# Insert this user into the database 
-			$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+		# Insert this user into the database 
+		$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
-			# Send to the login page
-			Router::redirect('/users/login');
-		}  
+		# For now, just confirm they've signed up - 
+		# You should eventually make a proper View for this
+		echo 'You\'re signed up';   
     }
 
 	/*-------------------------------------------------------------------------------------------------
@@ -108,17 +81,15 @@ class users_controller extends base_controller {
 			WHERE email = '".$_POST['email']."' 
 			AND password = '".$_POST['password']."'";
 
-		# If there was, this will return the token
-	    $token = DB::instance(DB_NAME)->select_field($q);
+		$token = DB::instance(DB_NAME)->select_field($q);
 
 		# If we didn't find a matching token in the database, it means login failed
 		if(!$token) {
 
         	# Note the addition of the parameter "error"
-			Router::redirect("/users/login/invalid-login"); 
+			Router::redirect("/users/login/error"); 
 		} 
     
-		# Login Passed
 		else {
 
 			# Store token in cookie: (name, value, expiration, path)
@@ -131,14 +102,31 @@ class users_controller extends base_controller {
 	}
 	
 	/*-------------------------------------------------------------------------------------------------
+	Profile Function
+	-------------------------------------------------------------------------------------------------*/
+	public function profile() {
+
+    	# If user is blank, they're not logged in; redirect them to the login page
+		if(!$this->user) {
+        	Router::redirect('/users/login');
+		}
+
+		# If they weren't redirected away, continue:
+
+		# Setup view
+		$this->template->content = View::instance('v_users_profile');
+		$this->template->title   = "Profile of".$this->user->first_name;
+
+		# Render template
+		echo $this->template;
+	}
+	
+	/*-------------------------------------------------------------------------------------------------
 	Logout Function
 	-------------------------------------------------------------------------------------------------*/
 
     public function logout() {
     
-    	# Sanitize Data Entry
-    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
-    	 
     	 # Generate and save a new token for next login
 		 $new_token = sha1(TOKEN_SALT.$this->user->email.Utils::generate_random_string());
 
@@ -154,36 +142,6 @@ class users_controller extends base_controller {
 
 		 # Send them back to the main index.
 		 Router::redirect("/");
-	}
-	
-	/*-------------------------------------------------------------------------------------------------
-	Profile Function
-	-------------------------------------------------------------------------------------------------*/
-	public function profile($error = NULL) {
-
-    	# Sanitize Data Entry
-    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
-    	
-    	# If user is blank, they're not logged in; redirect them to the login page
-		if(!$this->user) {
-        	Router::redirect('/users/login');
-		}
-
-		# If they weren't redirected away, continue:
-
-		# Setup view
-		$this->template->content = View::instance('v_users_profile');
-		$this->template->title   = "Profile of".$this->user->first_name;
-
-		# Query load posts from user
-    	$q = 'SELECT * FROM posts WHERE user_id = '.$this->user->user_id;
-    	
-    	# Run Query
-    	$posts = DB::instance(DB_NAME)->select_rows($q);
-    	$this->template->content->posts = $posts;
-    	
-    	# Render template
-    	echo $this->template;
 	}
 
 } # EOC
