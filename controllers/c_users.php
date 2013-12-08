@@ -27,23 +27,42 @@ class users_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
 
     public function p_signup() {
+    
+    	# Sanitize Data Entry
+    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+    	
+    	# Set up Email / Password Query
+    	$q = "SELECT * FROM users WHERE email = '".$_POST['email']."'"; 
+    	
+    	# Query Database
+    	$user_exists = DB::instance(DB_NAME)->select_rows($q);
+    	
+    		# Check if email exists in database
+    		if(!empty($user_exists)){
+    		
+    			# Send to Login page
+    			# Pass error message along - to the login page - indicate 'user-exists' error
+	    		Router::redirect('/users/login/user-exists');
+    		}
+    		
+    		else {
 
-    	# More data we want stored with the user
-		$_POST['created']  = Time::now();
-		$_POST['modified'] = Time::now();
+				# More data we want stored with the user
+				$_POST['created']  = Time::now();
+				$_POST['modified'] = Time::now();
 
-		# Encrypt the password  
-		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
+				# Encrypt the password  
+				$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
 
-		# Create an encrypted token via their email address and a random string
-		$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
+				# Create an encrypted token via their email address and a random string
+				$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
 
-		# Insert this user into the database 
-		$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+				# Insert this user into the database 
+				$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
-		# For now, just confirm they've signed up - 
-		# You should eventually make a proper View for this
-		echo 'You\'re signed up';   
+				# Send to the login page
+				Router::redirect('/users/login');
+			} 
     }
 
 	/*-------------------------------------------------------------------------------------------------
