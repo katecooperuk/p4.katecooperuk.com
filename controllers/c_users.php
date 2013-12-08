@@ -46,12 +46,12 @@ class users_controller extends base_controller {
     		}
     		
     		# Check if fields are blank
-    		elseif(empty($_POST['email']['password'])) {
-			
-				# Send to Login page
-				# Pass error message along - to the login page - indicate 'user-exists' error
-				Router::redirect('/users/signup/blank-fields'); 
-			}
+            elseif(empty($_POST['email']['password'])) {
+                        
+            # Error Alert - All fields should be filled - users/signup
+            Router::redirect('/users/signup/blank-fields'); 
+            
+            }
     		
     		else {
 
@@ -70,7 +70,8 @@ class users_controller extends base_controller {
 
 				# Send to the login page
 				Router::redirect('/users/login');
-			} 
+		}
+		 
     }
 
 	/*-------------------------------------------------------------------------------------------------
