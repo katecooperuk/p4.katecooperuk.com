@@ -2,6 +2,8 @@
 class posts_controller extends base_controller {
 
     public function __construct() {
+        
+        # Make sure the base controller construct gets called
         parent::__construct();
 
         # Make sure user is logged in if they want to use anything in this controller
@@ -18,7 +20,7 @@ class posts_controller extends base_controller {
 
         # Setup view
         $this->template->content = View::instance('v_posts_add');
-        $this->template->title   = "New Post";
+        $this->template->title   = "Add Post";
 
         # Render template
         echo $this->template;
@@ -43,7 +45,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
         # Quick and dirty feedback
-        echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+        Router::redirect('/posts/');
 
     }
     
