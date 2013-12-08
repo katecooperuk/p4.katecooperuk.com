@@ -1,22 +1,29 @@
 <form method='POST' action='/users/p_login'>
 
     Email<br>
-    <input type='text' name='email'>
+	<input type='text' name='email'>
 
-    <br><br>
+	<br><br>
 
-    Password<br>
-    <input type='password' name='password'>
+	Password<br>
+	<input type='password' name='password'>
 
-    <br><br>
-    
-    <?php if(isset($error)): ?>
-        <div class='error'>
-            Login failed. Please double check your email and password.
-        </div>
-        <br>
-    <?php endif; ?>
+	<br><br>
+			
+	<?php if($error && $error == 'user-exists'): ?>
+		<div class='error'>
+			This user already exists
+		</div>
+	<?php elseif(isset($error) && $error == 'blank-fields'): ?>
+		<div class='error'>
+			All fields need to be completed
+		</div>
+	<?php elseif(isset($error) && $error == 'invalid-login'): ?>
+		<div class='error'>
+			Invalid Login, please try again
+		</div>
+	<?php endif; ?>
 
-    <input type='submit' value='Log in'>
+	<input type='submit' value='Log in'>
 
 </form>
