@@ -14,35 +14,59 @@
 	<!-- End JS Links -->
 	
 	<!-- Controller Specific CSS/JS -->
+	<link rel="stylesheet" href="/css/chatterbox.css" type="text/css">
+	
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
 	
 </head>
 
-<body>	
+<body>
+	<?php if(isset($client_files_body)) echo $client_files_body; ?>	
 	
-	<div id='menu'>
+	<!-- Page Wrapper -->
+	<div id="pagewrapper">
+	
+		<!-- Masthead -->
+		<header>ChatterBox</header>
+		<!-- End Masthead -->
+		
+		<!-- Navigation Links -->
+		<nav>
+			<menu>
+				<ul>
+					<li><a href='/'>Home</a></li>
+				
+					<?php if($user): ?>
+			
+						<li><a href='/users/profile'>Profile</a></li>
+						<li><a href='/posts/add'>Add Post</a></li>
+						<li><a href='/posts/'>View Posts</a></li>
+						<li><a href='/posts/users'>Users</a></li>
+						<li><a href='/users/logout'>Logout</a></li>
+				
+					<?php else: ?>
+			
+						<li><a href='/users/signup'>Sign Up</a></li>
+						<li><a href='/users/login'>Login</a><br></li>
+				
+					<?php endif; ?>
+				</ul>
+			</menu>
+		</nav>
+		<!-- End Navigation Links -->
+		
+		<!-- Page Content -->
+		<?php if(isset($content)) echo $content; ?>	
+		
+			<?php if($user): ?>
+				You are logged in as <?=$user->first_name?> <?=$user->last_name?><br>
+			<?php endif; ?>
+	
+			<br>
+		<!-- End Page Content -->
+	
+	</div>
+	<!-- End Page Wrapper -->
 
-        <a href='/'>Home</a>
-
-        <!-- Menu for users who are logged in -->
-        <?php if($user): ?>
-
-            <a href='/users/logout'>Logout</a>
-            <a href='/users/profile'>Profile</a>
-
-        <!-- Menu options for users who are not logged in -->
-        <?php else: ?>
-
-            <a href='/users/signup'>Sign up</a>
-            <a href='/users/login'>Log in</a>
-
-        <?php endif; ?>
-
-    </div>
-
-    <br>
-
-    <?php if(isset($content)) echo $content; ?>
-    
 </body>
 </html>
