@@ -54,6 +54,7 @@ class users_controller extends base_controller {
 
 		# Set up the view
 		$this->template->content = View::instance("v_users_login");
+		$this->template->title   = "Login";
 
 		# Pass data to the view
 		$this->template->content->error = $error;
@@ -81,15 +82,17 @@ class users_controller extends base_controller {
 			WHERE email = '".$_POST['email']."' 
 			AND password = '".$_POST['password']."'";
 
+		# If there was, this will return the token
 		$token = DB::instance(DB_NAME)->select_field($q);
 
 		# If we didn't find a matching token in the database, it means login failed
 		if(!$token) {
 
         	# Note the addition of the parameter "error"
-			Router::redirect("/users/login/error"); 
+			Router::redirect("/users/login/invalid-login"); 
 		} 
     
+		# Login passed
 		else {
 
 			# Store token in cookie: (name, value, expiration, path)
