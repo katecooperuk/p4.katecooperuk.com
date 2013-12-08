@@ -9,11 +9,11 @@ class users_controller extends base_controller {
 	Signup Function
 	-------------------------------------------------------------------------------------------------*/
     
-    public function signup() {
+    public function signup($error = NULL) {
 
         # Setup view
-            $this->template->content = View::instance('v_users_signup');
-            $this->template->title   = "Sign Up";
+        $this->template->content = View::instance('v_users_signup');
+        $this->template->title   = "Sign Up";
 
         # Pass data to the view
 		$this->template->content->error = $error;
