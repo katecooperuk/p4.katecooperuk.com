@@ -1,4 +1,4 @@
-<form method='POST' action='/users/p_signup'>
+<form name='appForm' method='POST' action='/users/p_signup' onsubmit='return validateForm();'>
 
 	First Name<br>
 	<input type='text' name='first_name'>

@@ -1,4 +1,4 @@
-<form method='POST' action='/users/p_login'>
+<form name='appForm' method='POST' action='/users/p_login' onsubmit='return validateForm();'>
 
     Email<br>
 	<input type='text' name='email'>
