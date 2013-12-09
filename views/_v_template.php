@@ -5,12 +5,13 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 
-	<!-- JS Links -->
+	<!-- JS External Links -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<!-- End JS Links -->
+	<!-- End JS External Links -->
 	
 	<!-- Controller Specific CSS/JS -->
 	<link rel="stylesheet" href="/css/bookclub.css" type="text/css">
+	<script type="text/javascript" src="/js/bookclub.js"></script>
 	
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
 	
