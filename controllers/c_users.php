@@ -46,7 +46,7 @@ class users_controller extends base_controller {
     		}
     		
     		# Check if fields are blank
-            elseif(empty($_POST['email']['password'])) {
+            elseif(empty($_POST['email'])||empty($_POST['password'])||empty($_POST['first_name'])||empty($_POST['last_name'])) {
                         
             # Error Alert - All fields should be filled - users/signup
             Router::redirect('/users/signup/blank-fields'); 
