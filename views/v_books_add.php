@@ -1,17 +1,17 @@
-<form name='appForm' method='POST' action='/books/p_add' onsubmit='return validateForm();'>
+<form name='appForm' method='POST' action='/books/p_add>
 
 	Book Title<br>
-	<input type='text' name='first_name'>
+	<input type='text' name='title'>
 	<br><br>
 	
 	Author<br>
-	<input type='text' name='last_name'>
+	<input type='text' name='author'>
 	<br><br>
 	
 	ISBN<br>
-	<input type='text' name='email'>
+	<input type='text' name='isbn'>
 	<br><br>
 	
-<input type='submit' value='Sign Up'>
+<input type='submit' value='Add Book'>
 			
 </form>
