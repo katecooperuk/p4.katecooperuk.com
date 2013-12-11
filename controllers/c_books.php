@@ -7,7 +7,6 @@ class books_controller extends base_controller {
     }
     
     public function index() {
-        echo "This is books page";
+        echo "This is the add books page";
     }
 }
-?>
