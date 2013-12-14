@@ -33,10 +33,11 @@ class books_controller extends base_controller {
 
     public function p_addBook() {
 	    
-	    # Dump out the results of POST to see what the form submitted
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
+	    # Insert this book into the database
+	    $book_id = DB::instance(DB_NAME)->insert('books', $_POST);
+	    
+	    # confirm book added
+        echo 'you added a book';
     }
     
     
