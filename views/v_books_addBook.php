@@ -1,4 +1,4 @@
-<form name='appForm' method='POST' action='/books/p_add_book>
+<form name='appForm' method='POST' action='/books/p_addBook>
 
 	Book Title<br>
 	<input type='text' name='title'>
