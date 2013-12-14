@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="/css/bookclub.css" type="text/css">
 	<script type="text/javascript" src="/js/bookclub.js"></script>
 	
+	<!-- Google Font Link -->
+    <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+	
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
 	
 </head>
