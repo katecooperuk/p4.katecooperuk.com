@@ -10,11 +10,11 @@ class books_controller extends base_controller {
         echo "This is the index page";
     }
 
-	public function add_book() {
+	public function addBook() {
         echo "This is add book page";
     }
 
-    public function list_book() {
+    public function listBook() {
         echo "This is the book list page";
     }
 }
