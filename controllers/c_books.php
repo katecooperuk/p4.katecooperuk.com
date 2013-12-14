@@ -21,15 +21,12 @@ class books_controller extends base_controller {
 					books.title,
 					books.author,
 					books.isbn,
-					books.user_id AS books_user_id,
 					books.created,
 					users.first_name,
 					users.last_name
 				FROM books
 				INNER JOIN users 
-					ON books.user_id = users.user_id
-				WHERE books.user_id = '.$this->user->user_id.'
-				ORDER BY book_id DESC';
+					ON books.user_id = users.user_id';
 				
 		# Run Query
 		$books = DB::instance(DB_NAME)->select_rows($q);
