@@ -32,6 +32,9 @@ class books_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
 
     public function p_addBook() {
+    
+    	# Sanitize Data Entry
+    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 	    
 	    # More data we want stored with the book
 		$_POST['created']  = Time::now();
