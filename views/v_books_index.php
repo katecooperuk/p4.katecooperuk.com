@@ -12,3 +12,7 @@
 	<div id="name">Suggested by <?=$post['first_name']?></div>
 	<br>
 <?php endforeach; ?>
+
+<?php
+  echo "<script language='javascript'>GBS_insertPreviewButtonPopup('ISBN:0738531367');</script>";
+?>
