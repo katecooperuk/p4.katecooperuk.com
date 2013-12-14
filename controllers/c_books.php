@@ -10,18 +10,36 @@ class books_controller extends base_controller {
 	View All Books
 	-------------------------------------------------------------------------------------------------*/
     
-    public function index($error = NULL) {
+    public function index() {
 	
 	 	# Set up view
 	 	$this->template->content = View::instance('v_books_index');
-	 	$this->template->title   = "View Book Shelf";
+	 	$this->template->title   = "Book Shelf";
 	 	
-	 	# Pass data to the view
-		$this->template->content->error = $error;
+	 	# Set up Query
+		$q = 'SELECT 
+					books.title,
+					books.author,
+					books.isbn,
+					books.user_id AS books_user_id,
+					books.created,
+					users.first_name,
+					users.last_name
+				FROM books
+				INNER JOIN users 
+					ON books.user_id = users.user_id
+				WHERE books.user_id = '.$this->user->user_id.'
+				ORDER BY book_id DESC';
+				
+		# Run Query
+		$books = DB::instance(DB_NAME)->select_rows($q);
+	 	
+	 	# Pass $books array to the view
+		$this->template->content->books = $books;
         
         # Render the view (localhost/books)
         echo $this->template;
-   }    
+	}
     
     /*-------------------------------------------------------------------------------------------------
 	Add Book Function
@@ -51,6 +69,7 @@ class books_controller extends base_controller {
     	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 	    
 	    # More data we want stored with the book
+	    $_POST['user_id'] 	= $this->user->user_id;
 		$_POST['created']  = Time::now();
 		$_POST['modified'] = Time::now();
 	    
