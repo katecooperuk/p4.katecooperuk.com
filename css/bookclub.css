@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* CSS File for Project 4 */
+
+body {
+	margin:100px;
+	background-color:#fff;
+	background-image: url('/images/library.jpg');
+	font-family:'Belgrano', sans-serif;
+}
+
+header {
+	width:100%;
+	padding-top:50px;
+	overflow:hidden;
+	background-image:url(/images/CBBookClubLogo.gif);
+	background-repeat:no-repeat;
+	height:0px;
+}
+
+#pagewrapper {
+	width:800px;
+	margin:0 auto;
+	background-color:#fff;
+}
