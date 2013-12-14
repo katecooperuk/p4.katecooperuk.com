@@ -23,6 +23,10 @@ header {
 	background-color:#fff;
 }
 
+h2, h4, h5 {
+	color:#7750cb;
+}
+
 /* Main Site Navigation */
 
 nav {
@@ -60,4 +64,32 @@ a:active {
 	padding-right:10px;
 	color:#a94470;
 	text-decoration:none;
+}
+
+/* Text */
+
+#name {
+	font-size:12pt;
+	color:#7750cb;
+}
+
+#post {
+	color:#2a394d;
+	
+}
+
+#time {
+	color:#6e8097;
+	font-size:70%;
+	font-style:italic;
+}
+
+#welcome {
+	font-size:120%;
+	padding:50px 0 50px 10px;
+	
+}
+
+.error {
+	color:red;
 }
