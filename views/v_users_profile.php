@@ -1,8 +1,13 @@
 <h1><?=$user->first_name?>'s Profile</h1>
 
-<img src="<?=$user->avatar; ?>" class='profile'>
+<?php if(isset($avatar)): ?>
+	<img src="<?=$user->avatar; ?>" class='profile'>
+<?php endif; ?>
 
-<? if(empty($avatar)) $avatar = "/uploads/default.gif"; ?>
+<?php if(!isset($avatar)): ?>
+	<img src='/uploads/default.gif'>
+	<div id="prompt">Upload your own avatar image</div>
+<?php endif; ?>
 
 <form method='POST' action="/users/picture/" enctype="multipart/form-data" >
 	
