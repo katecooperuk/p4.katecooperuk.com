@@ -10,7 +10,7 @@ body {
 
 header {
 	width:100%;
-	padding-top:50px;
+	padding-top:60px;
 	overflow:hidden;
 	background-image:url(/images/CBBookClubLogo.gif);
 	background-repeat:no-repeat;
@@ -21,4 +21,43 @@ header {
 	width:800px;
 	margin:0 auto;
 	background-color:#fff;
+}
+
+/* Main Site Navigation */
+
+nav {
+	font-family:'Belgrano', sans-serif;
+	font-size:16pt;
+	color:#280044;
+}
+
+ul li {
+	margin:0;
+	padding:0;
+}
+
+menu {
+	width:778px;
+}
+
+menu ul {
+	list-style:none;
+}
+
+menu li {
+	display:inline;
+}
+
+a:link,
+a:visited {
+	padding-right:10px;
+	color:#423978;
+	text-decoration:none;
+}
+
+a:hover,
+a:active {
+	padding-right:10px;
+	color:#a94470;
+	text-decoration:none;
 }
