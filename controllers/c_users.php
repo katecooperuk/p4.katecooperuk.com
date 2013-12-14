@@ -135,7 +135,10 @@ class users_controller extends base_controller {
 	/*-------------------------------------------------------------------------------------------------
 	Profile Function
 	-------------------------------------------------------------------------------------------------*/
-	public function profile() {
+	public function profile($error = NULL) {
+	
+		# Sanitize Data Entry
+    	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
     	# If user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
@@ -146,7 +149,14 @@ class users_controller extends base_controller {
 
 		# Setup view
 		$this->template->content = View::instance('v_users_profile');
-		$this->template->title   = "Profile of".$this->user->first_name;
+		$this->template->title   = "Profile of ".$this->user->first_name;
+		
+		# Query load posts from user
+    	$q = 'SELECT * FROM posts WHERE user_id = '.$this->user->user_id;
+    	
+    	# Run Query
+    	$posts = DB::instance(DB_NAME)->select_rows($q);
+    	$this->template->content->posts = $posts;
 
 		# Render template
 		echo $this->template;
