@@ -23,7 +23,7 @@
 	<div id="pagewrapper">
 	
 		<!-- Masthead -->
-		<header>ChatterBox</header>
+		<header>ChatterBox Book Club</header>
 		<!-- End Masthead -->
 		
 		<!-- Navigation Links -->
