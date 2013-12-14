@@ -76,12 +76,8 @@ class books_controller extends base_controller {
 	    # Insert this book into the database
 	    $book_id = DB::instance(DB_NAME)->insert('books', $_POST);
 	    
-	    # confirm book added
-        echo 'you added a book';
+	    # Send User to books/index
+        Router::redirect('/books/');
     }
     
-    
-    public function listBook() {
-        echo "This is the book list page";
-    }
-}
+ } #EOC
