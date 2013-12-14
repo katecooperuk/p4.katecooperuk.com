@@ -5,9 +5,23 @@ class books_controller extends base_controller {
         parent::__construct();
     }
     
-    public function index() {
-        echo "This is the index page";
-    }
+    
+	/*-------------------------------------------------------------------------------------------------
+	View All Books
+	-------------------------------------------------------------------------------------------------*/
+    
+    public function index($error = NULL) {
+	
+	 	# Set up view
+	 	$this->template->content = View::instance('v_books_index');
+	 	$this->template->title   = "View Book Shelf";
+	 	
+	 	# Pass data to the view
+		$this->template->content->error = $error;
+        
+        # Render the view (localhost/books)
+        echo $this->template;
+   }    
     
     /*-------------------------------------------------------------------------------------------------
 	Add Book Function
