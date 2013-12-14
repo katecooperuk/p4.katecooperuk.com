@@ -7,6 +7,7 @@
 
 	<!-- JS External Links -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://books.google.com/books/previewlib.js"></script>
 	<!-- End JS External Links -->
 	
 	<!-- Controller Specific CSS/JS -->
