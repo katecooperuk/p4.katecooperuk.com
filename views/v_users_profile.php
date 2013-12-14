@@ -2,9 +2,8 @@
 
 <?php if(isset($avatar)): ?>
 	<img src="<?=$user->avatar; ?>" class='profile'>
-<?php endif; ?>
 
-<?php if(!isset($avatar)): ?>
+<?php else: ?>
 	<img src='/uploads/default.gif'>
 	<div id="prompt">Upload your own avatar image</div>
 <?php endif; ?>
