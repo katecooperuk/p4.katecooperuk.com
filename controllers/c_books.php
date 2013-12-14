@@ -26,7 +26,20 @@ class books_controller extends base_controller {
         echo $this->template;
        
     }
+    
+    /*-------------------------------------------------------------------------------------------------
+	Process Add Book Function
+	-------------------------------------------------------------------------------------------------*/
 
+    public function p_addBook() {
+	    
+	    # Dump out the results of POST to see what the form submitted
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+    }
+    
+    
     public function listBook() {
         echo "This is the book list page";
     }
