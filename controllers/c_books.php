@@ -33,6 +33,10 @@ class books_controller extends base_controller {
 
     public function p_addBook() {
 	    
+	    # More data we want stored with the book
+		$_POST['created']  = Time::now();
+		$_POST['modified'] = Time::now();
+	    
 	    # Insert this book into the database
 	    $book_id = DB::instance(DB_NAME)->insert('books', $_POST);
 	    
