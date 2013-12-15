@@ -1,5 +1,5 @@
 /*-------------------------------------------------------------------------------------------------
-	Form Email Validation
+	Form Validation - Email & Blank Fields
 -------------------------------------------------------------------------------------------------*/
 
 function validateForm() {
@@ -13,4 +13,48 @@ function validateForm() {
 		alert("Not a valid e-mail address");
 		return false;
 		}
+
+	var x=document.forms["appForm"]["first_name"].value;
+	if (x==null || x=="") {
+		alert("First name must be filled out");
+		return false;
+	}
+	
+	var x=document.forms["appForm"]["last_name"].value;
+	if (x==null || x=="") {
+		alert("Last name must be filled out");
+		return false;
+	}
+	
+	var x=document.forms["appForm"]["password"].value;
+	if (x==null || x=="") {
+		alert("Password must be completed");
+		return false;
+	}
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+	Form Numbers only in ISBN field
+-------------------------------------------------------------------------------------------------*/
+
+function validateFormBook() {
+	
+	var x=document.forms["bookForm"]["title"].value;
+	if (x==null || x=="") {
+		alert("Title must be completed");
+		return false;
+	}
+	
+	var x=document.forms["bookForm"]["author"].value;
+	if (x==null || x=="") {
+		alert("Author's name must be completed");
+		return false;
+	}
+	
+	var x=document.forms["bookForm"]["isbn"].value;
+	if (x==null || x=="") {
+		alert("ISBN must be completed to enable Google Preview link");
+		return false;
+	}
 }
