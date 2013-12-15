@@ -111,6 +111,10 @@ a:active {
 
 /* Bookshelf Page Text */
 
+#bookrow {
+	margin:0 0 0 20px;
+}
+
 #title {
 	font-size:14pt;
 	color:#b50159;
@@ -118,18 +122,18 @@ a:active {
 }
 
 #author {
-	font-size:12pt;
+	font-size:11pt;
 	color:#423978;
 	font-style:italic;
-}
-
-#gpop {
-	
 }
 
 #member {
 	font-size:10pt;
 	color:#0097e5;
+}
+
+#gpop {
+	padding:5px;
 }
 
 /* Content Boxes */
