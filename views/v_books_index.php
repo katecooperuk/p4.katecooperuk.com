@@ -7,9 +7,13 @@
 <?php endif; ?>
 
 <?php foreach($books as $post): ?>
-	<div id="title"><?=$post['title']?></div>
-	<div id="author"><?=$post['author']?></div>
-	<div id="gpop"><script language='javascript'>GBS_insertPreviewButtonPopup('ISBN:<?=$post['isbn']?>');</script></div>
-	<div id="member">Suggested by <?=$post['first_name']?></div>
-	<br>
+		<div id="bookrow">
+			<span id="title"><?=$post['title']?> - </span>
+			<span id="author"><?=$post['author']?></span><br>
+			<span id="member">Suggested by <?=$post['first_name']?></span><br>
+			<div id="gpop"><script language='javascript'>GBS_insertPreviewButtonPopup('ISBN:<?=$post['isbn']?>');</script></div>
+			<br>
+		</div>
 <?php endforeach; ?>
+
+<?=$books_addBook?>
