@@ -32,9 +32,8 @@
 		
 		<!-- Navigation Links -->
 		<nav>
-			<menu>
-				<ul>
-					<li><a href='/'>Home</a></li>
+			<ul>
+				<li><a href='/'>Home</a></li>
 				
 					<?php if($user): ?>
 			
@@ -51,8 +50,7 @@
 						<li><a href='/users/login'>Login</a><br></li>
 				
 					<?php endif; ?>
-				</ul>
-			</menu>
+			</ul>
 		</nav>
 		<!-- End Navigation Links -->
 		
@@ -65,6 +63,20 @@
 
 		<?php if(isset($client_files_body)) echo $client_files_body; ?>
 		<!-- End Page Content -->
+		
+		<!-- Footer -->
+		<footer>
+			<p class="footer">Kate Cooper - CSCI E15: Dynamic Web Applications - Project 4</p>
+			<p>
+				<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fp4.katecooperuk.com%2F">
+				<img style="border:0; width:32px; height:32px" src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="Valid HTML5!" width="63" height="64" title="HTML5 Powered">
+				</a>
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">
+				<img style="border:0; width:88px; height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!">
+				</a>
+			</p>
+		</footer>
+		<!-- End Footer -->
 		
 	</div>
 	<!-- End Page Wrapper -->
