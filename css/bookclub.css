@@ -98,6 +98,13 @@ a:active {
 	font-style:italic;
 }
 
+#login {
+	color:#5732f1;
+	font-size:90%;
+	font-style:italic;
+	padding-left:20px;
+}
+
 .error {
 	color:red;
 }
@@ -165,4 +172,16 @@ a:active {
 
 .content a:hover {
 	color:#5732f1;
+}
+
+/* Images */
+
+img.profile {
+	width:150px;
+	height:150px;
+}
+
+img.posts {
+	width:80px;
+	height:80px;
 }
