@@ -32,3 +32,8 @@ Here are some book titles, authors and isbn numbers so you can test the Add Book
 1. Through A Glass Darkly - J. Sheridan Le Fanu - 0807846449
 2. The Turn of the Screw - Henry James - 1610426940
 3. The Vampyre - John William Polidori - 0191504416
+
+Citations:
+Library Background image - http://www.vladstudio.com/home/ - Vlad Gerasimov
+Book image on login/signup forms: http://www4.uwsp.edu/education/Lwilson/newstuff/graphics/MCj03825740000[1].jpg
+Avatars: screen grabs from "Bram Stoker's Dracula" and "Dracula"
