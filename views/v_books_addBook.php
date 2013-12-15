@@ -15,6 +15,13 @@
 		<div id="prompt">Please include ISBN to enable Google Preview link (10 or 13 digit)</div>
 		<br><br>
 		
+		
+		<?php if(isset($error) && $error == 'book-exists'): ?>
+			<div class='error'>
+				This book is already on the shelf
+			</div>
+		<?php endif; ?>
+		
 	<input type='submit' value='Add Book'>
 				
 	</form>
