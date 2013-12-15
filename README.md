@@ -26,3 +26,9 @@ Features:
 		- numbers only in add book ISBN field
 		
 -	Javascript management of the Google Books preview button/pop-up window
+
+Here are some book titles, authors and isbn numbers so you can test the Add Book function:
+
+1. Through A Glass Darkly - J. Sheridan Le Fanu - 0807846449
+2. The Turn of the Screw - Henry James - 1610426940
+3. The Vampyre - John William Polidori - 0191504416
