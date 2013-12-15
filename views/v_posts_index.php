@@ -1,28 +1,22 @@
-<?php if (count($posts) == 0) :?>
+<div class="content">
+	<?php if (count($posts) == 0) :?>
 
-	<article>
+		<article>
 	
-		<h4>You are not following anyone yet,<br>
-			choose some <a href="/posts/users/">Book Club Members</a> to follow
-			</h4>
+			You are not following anyone yet, choose some <a href="/posts/users/">Book Club Members</a>to follow
 			
-	</article>
+		</article>
 	
-<?php endif; ?>
+	<?php endif; ?>
 
-<?php foreach($posts as $post): ?>
+	<?php foreach($posts as $post): ?>
 
-	<article>
-		<img src="/uploads/avatars/<?=$post['avatar']?>" >
-		
-    	<h1><?=$post['first_name']?> <?=$post['last_name']?> posted:</h1>
+		<article>
+			<img class="posts" src="/uploads/avatars/<?=$post['avatar']?>" >
+			<div id="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</div>
+			<div id="post"><?=$post['content']?></div>
+			<div id="time"><?=Time::display($post['created'])?></div>
+		</article>
 
-		<p><?=$post['content']?></p>
-
-		<time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>">
-        	<?=Time::display($post['created'])?>
-		</time>
-
-	</article>
-
-<?php endforeach; ?>
+	<?php endforeach; ?>
+</div>

@@ -24,7 +24,11 @@ header {
 }
 
 h2, h4, h5 {
-	color:#7750cb;
+	color:#157cef;
+}
+
+article {
+	padding: 20px
 }
 
 /* Main Site Navigation */
@@ -147,4 +151,18 @@ a:active {
 	padding:5px;
 	font-size:11pt;
 	color:#423978;
+}
+
+.content {
+	width:780px;
+	padding:20px;
+	color:#423978;
+}
+
+.content a {
+	color:#a94470;
+}
+
+.content a:hover {
+	color:#130753;
 }
