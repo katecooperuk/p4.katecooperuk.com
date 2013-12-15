@@ -131,3 +131,20 @@ a:active {
 	background-repeat:no-repeat;
 	background-position:right;
 }
+
+.formcontent {
+	width:660px;
+	padding:20px 20px 50px 20px;
+	background-image:url(/images/books-image.jpg);
+	background-repeat:no-repeat;
+	background-position:right top;
+}
+
+#textbox {
+	width:350px;
+	height:60px;
+	border:2px solid #007cef;
+	padding:5px;
+	font-size:11pt;
+	color:#423978;
+}
