@@ -34,6 +34,9 @@ Here are some book titles, authors and isbn numbers so you can test the Add Book
 3. The Vampyre - John William Polidori - 0191504416
 
 Citations:
-Library Background image - http://www.vladstudio.com/home/ - Vlad Gerasimov
-Book image on login/signup forms: http://www4.uwsp.edu/education/Lwilson/newstuff/graphics/MCj03825740000[1].jpg
-Avatars: screen grabs from "Bram Stoker's Dracula" and "Dracula"
+Library Background image - Gerasimov, Vlad. "Vladstudio." Vladstudio. N.p., n.d. Web. 15 Dec. 2013. <http://www.vladstudio.com/home/>.
+Book image on login/signup forms: "University of Wisconsin - Stevens Point." University of Wisconsin - Stevens Point. N.p., n.d. Web. 15 Dec. 2013. <http://www4.uwsp.edu>.
+Avatars - screen grabs from the following movies: 
+- Browning, Todd (Director). (1931). Dracula [Motion picture]. USA.
+- Coppola, F. F. (Director). (2001). Bram Stoker's Dracula [Motion picture]. USA: Columbia TriStar Home Entertainment.
+- Fisher, Terence (Director). (1958). Dracula [Motion picture]. UK.
