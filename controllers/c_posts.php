@@ -6,7 +6,9 @@ class posts_controller extends base_controller {
 
         # Make sure user is logged in if they want to use anything in this controller
         if(!$this->user) {
-            die("Members only. <a href='/users/login'>Login</a>");
+        
+            # Send User to login page
+			Router::redirect('/users/login');
         }
     }
 
@@ -22,7 +24,6 @@ class posts_controller extends base_controller {
 
         # Render template
         echo $this->template;
-
     }
     
     /*-------------------------------------------------------------------------------------------------
@@ -44,7 +45,6 @@ class posts_controller extends base_controller {
 
         # Redirect user back to posts page
         Router::redirect('/posts/');
-
     }
     
     /*-------------------------------------------------------------------------------------------------
@@ -81,7 +81,6 @@ class posts_controller extends base_controller {
 		
 		# Render view
 		echo $this->template;
-		
 	}
 	
 	/*-------------------------------------------------------------------------------------------------
