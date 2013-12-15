@@ -112,7 +112,7 @@ a:active {
 /* Bookshelf Page Text */
 
 #bookrow {
-	margin:0 0 0 20px;
+
 }
 
 #title {
@@ -133,7 +133,7 @@ a:active {
 }
 
 #gpop {
-	padding:5px;
+	padding-top:5px;
 }
 
 /* Content Boxes */
