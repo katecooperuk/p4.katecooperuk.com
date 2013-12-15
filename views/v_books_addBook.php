@@ -1,6 +1,6 @@
 <div class="formcontent">
 
-	<form name='appForm' method='POST' action='/books/p_addBook'>
+	<form name='bookForm' method='POST' action='/books/p_addBook' onsubmit='return validateFormBook();'>
 	
 		Book Title<br>
 		<input type='text' name='title'>
@@ -12,7 +12,7 @@
 		
 		ISBN<br>
 		<input type='text' name='isbn'>
-		<div id="prompt">Please include ISBN to enable Google Preview link</div>
+		<div id="prompt">Please include ISBN to enable Google Preview link (10 or 13 digit)</div>
 		<br><br>
 		
 	<input type='submit' value='Add Book'>
