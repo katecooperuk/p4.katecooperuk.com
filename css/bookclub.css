@@ -75,7 +75,6 @@ a:active {
 
 #post {
 	color:#2a394d;
-	
 }
 
 #time {
@@ -86,10 +85,39 @@ a:active {
 
 #welcome {
 	font-size:120%;
-	padding:50px 0 50px 10px;
-	
+	padding:50px 0 50px 10px;	
+}
+
+#prompt {
+	color:#a94470;
+	font-size:70%;
+	font-style:italic;
 }
 
 .error {
 	color:red;
 }
+
+/* Bookshelf Page Text */
+
+#title {
+	font-size:14pt;
+	color:#b50159;
+	
+}
+
+#author {
+	font-size:12pt;
+	color:#423978;
+	font-style:italic;
+}
+
+#gpop {
+	
+}
+
+#member {
+	font-size:10pt;
+	color:#0097e5;
+}
+
