@@ -53,7 +53,7 @@ function validateFormBook() {
 	}
 	
 	var x=document.forms["bookForm"]["isbn"].value;
-	if (x==null || x=="") {
+	if (x==null || x=="" || x.length < 10) {
 		alert("ISBN must be completed to enable Google Preview link");
 		return false;
 	}
