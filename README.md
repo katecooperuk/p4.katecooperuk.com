@@ -33,6 +33,13 @@ Here are some book titles, authors and isbn numbers so you can test the Add Book
 2. The Turn of the Screw - Henry James - 1610426940
 3. The Vampyre - John William Polidori - 0191504416
 
+Browser Testing
+Tested successfully on the following:
+- Safari v.7.0 (Mac OSX 10.9)
+- Firefox v.25.0.1 (Mac OSX 10.9)
+- Google Chrome v.31.0.1650.63 (Mac OSX 10.9)
+- IE v.9 (Windows 8)
+
 Citations:
 Library Background image - Gerasimov, Vlad. "Vladstudio." Vladstudio. N.p., n.d. Web. 15 Dec. 2013. <http://www.vladstudio.com/home/>.
 Book image on login/signup forms: "University of Wisconsin - Stevens Point." University of Wisconsin - Stevens Point. N.p., n.d. Web. 15 Dec. 2013. <http://www4.uwsp.edu>.
