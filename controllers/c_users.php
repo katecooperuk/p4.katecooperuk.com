@@ -46,6 +46,13 @@ class users_controller extends base_controller {
     		}
     		
     		else {
+    		
+    			# Mail Setup
+				$to = $_POST['email'];
+				$subject = "Welcome to ChatterBox Book Club!";
+				$message = "Thanks for signing up with ChatterBox Book Club.<br>Login at p4.katecooperuk.com to join in the literary discussion.";
+				$from = 'kcooper@g.harvard.edu';
+				$headers = "From:" . $from;  
 
 				# More data we want stored with the user
 				$_POST['created']  = Time::now();
@@ -59,6 +66,11 @@ class users_controller extends base_controller {
 
 				# Insert this user into the database 
 				$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+				
+				# Send Email
+                if(!$this->user) {
+	            	mail($to, $subject, $message, $headers);
+                } 
 
 				# Send to the login page
 				Router::redirect('/users/login');
