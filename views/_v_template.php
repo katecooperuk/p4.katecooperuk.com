@@ -58,10 +58,8 @@
 		
 		<!-- Page Content -->
 		<?php if($user): ?>
-			You are logged in as <?=$user->first_name?> <?=$user->last_name?><br>
+			<div id='login'> You are logged in as <?=$user->first_name?> <?=$user->last_name?></div>
 		<?php endif; ?>
-	
-			<br>
 
 		<?php if(isset($content)) echo $content; ?>
 
