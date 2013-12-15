@@ -102,7 +102,7 @@ a:active {
 	color:#5732f1;
 	font-size:90%;
 	font-style:italic;
-	padding-left:20px;
+	padding:0 0 20px 20px;
 }
 
 .error {
