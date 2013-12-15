@@ -1,4 +1,5 @@
 <div class="content">	
+	
 	<?php if (count($books) == 0) :?>
 		<article>
 			<h4>There are no books on the shelf yet<br>
