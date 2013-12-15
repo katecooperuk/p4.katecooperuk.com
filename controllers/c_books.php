@@ -73,17 +73,35 @@ class books_controller extends base_controller {
     
     	# Sanitize Data Entry
     	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+    	
+    	# Set up Book query
+    	$q = "SELECT * FROM books WHERE title = '".$_POST['title']."'"; 
+    	
+    	# Query Database
+    	$book_exists = DB::instance(DB_NAME)->select_rows($q);
+    	
+    		# Check if book exists in database
+    		if(!empty($book_exists)){
+    		
+    			# Send to Login page
+    			# Pass error message along - to the login page - indicate 'user-exists' error
+	    		Router::redirect('/books/addBook/book-exists');
+    		}
+    		
+    		else {
 	    
-	    # More data we want stored with the book
-	    $_POST['user_id'] 	= $this->user->user_id;
-		$_POST['created']  = Time::now();
-		$_POST['modified'] = Time::now();
-	    
-	    # Insert this book into the database
-	    $book_id = DB::instance(DB_NAME)->insert('books', $_POST);
-	    
-	    # Send User to books/index
-        Router::redirect('/books/');
+			    # More data we want stored with the book
+			    $_POST['user_id'] 	= $this->user->user_id;
+				$_POST['created']  = Time::now();
+				$_POST['modified'] = Time::now();
+			    
+			    # Insert this book into the database
+			    $book_id = DB::instance(DB_NAME)->insert('books', $_POST);
+			    
+			    
+			    # Send User to books/index
+		        Router::redirect('/books/');
+			}
     }
     
  } #EOC
