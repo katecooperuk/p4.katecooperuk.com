@@ -34,25 +34,17 @@ article {
 /* Main Site Navigation */
 
 nav {
+	width:778px;
 	font-family:'Belgrano', sans-serif;
 	font-size:16pt;
 	color:#280044;
 }
 
-ul li {
-	margin:0;
-	padding:0;
-}
-
-menu {
-	width:778px;
-}
-
-menu ul {
+ul {
 	list-style:none;
 }
 
-menu li {
+li {
 	display:inline;
 }
 
