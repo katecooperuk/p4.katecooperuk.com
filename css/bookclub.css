@@ -121,3 +121,13 @@ a:active {
 	color:#0097e5;
 }
 
+/* Content Boxes */
+
+.content-home{
+	width:660px;
+	height:200px;
+	padding:20px;
+	background-image:url(/images/books-image.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+}
