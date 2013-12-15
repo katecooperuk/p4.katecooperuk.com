@@ -10,6 +10,6 @@
 	<div id="title"><?=$post['title']?></div>
 	<div id="author"><?=$post['author']?></div>
 	<div id="gpop"><script language='javascript'>GBS_insertPreviewButtonPopup('ISBN:<?=$post['isbn']?>');</script></div>
-	<div id="name">Suggested by <?=$post['first_name']?></div>
+	<div id="member">Suggested by <?=$post['first_name']?></div>
 	<br>
 <?php endforeach; ?>
