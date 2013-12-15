@@ -22,6 +22,9 @@ class books_controller extends base_controller {
 	 	$this->template->content = View::instance('v_books_index');
 	 	$this->template->title   = "Book Shelf";
 	 	
+	 	# View within a view        
+	 	$this->template->content->books_addBook = View::instance('v_books_addBook');
+	 	
 	 	# Set up Query
 		$q = 'SELECT 
 					books.title,
