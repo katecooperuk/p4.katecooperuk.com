@@ -18,10 +18,6 @@
 				<div class='error'>
 					This user already exists
 				</div>
-			<?php elseif(isset($error) && $error == 'blank-fields'): ?>
-				<div class='error'>
-					All fields need to be completed
-				</div>
 			<?php elseif(isset($error) && $error == 'invalid-login'): ?>
 				<div class='error'>
 					Invalid Login, please try again
