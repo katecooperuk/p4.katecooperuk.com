@@ -57,4 +57,10 @@ function validateFormBook() {
 		alert("ISBN must be completed to enable Google Preview link");
 		return false;
 	}
+	
+	var x=document.forms["bookForm"]["isbn"].value;
+	if(isNaN(x)) {
+		alert("ISBN must be numbers only");
+		return false;
+	}
 }
