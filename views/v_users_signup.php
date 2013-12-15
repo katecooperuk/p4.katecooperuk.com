@@ -20,11 +20,7 @@
 		
 		<input type='submit' value='Sign Up'>
 			
-			<?php if(isset($error) && $error == 'blank-fields'): ?>
-				<div class='error'>
-					All fields need to be completed
-				</div>
-			<?php elseif(isset($error) && $error == 'invalid-login'): ?>
+			<?php if(isset($error) && $error == 'invalid-login'): ?>
 				<div class='error'>
 					Invalid Login, please try again
 				</div>
