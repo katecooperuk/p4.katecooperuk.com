@@ -31,11 +31,17 @@ function validateForm() {
 		alert("Password must be completed");
 		return false;
 	}
+	
+	var x=document.forms["appForm"]["textbox"].value;
+	if (x==null || x=="") {
+		alert("You must include some text");
+		return false;
+	}
 }
 
 
 /*-------------------------------------------------------------------------------------------------
-	Form Numbers only in ISBN field
+	Book Form Numbers - only in ISBN field / Blank Fields
 -------------------------------------------------------------------------------------------------*/
 
 function validateFormBook() {
@@ -64,3 +70,17 @@ function validateFormBook() {
 		return false;
 	}
 }
+
+/*-------------------------------------------------------------------------------------------------
+	Post Form Numbers - Blank Fields
+-------------------------------------------------------------------------------------------------*/
+
+function validateFormPost() {
+	
+	var x=document.forms["postForm"]["textbox"].value;
+	if (x==null || x=="") {
+		alert("You must include some text");
+		return false;
+	}
+}
+
