@@ -4,7 +4,7 @@
 
 	<img src="<?=$user->avatar; ?>" class='profile'>
 	
-	<?php if($user->avatar == "/core/images/placeholder.png"): ?>
+	<?php if($user->avatar == "/uploads/default.gif"): ?>
 		<div id="prompt">Upload your own avatar image</div>
 	<?php endif;?>
 	
