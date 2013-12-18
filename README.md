@@ -24,6 +24,7 @@ Features:
 		- blank fields on all forms
 		- correct email entry
 		- numbers only in add book ISBN field
+		- will not allow a blank post
 		
 -	Javascript management of the Google Books preview button/pop-up window
 
