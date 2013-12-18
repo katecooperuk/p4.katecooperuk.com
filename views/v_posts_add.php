@@ -1,5 +1,5 @@
 <div class="formcontent">
-	<form method='POST' action='/posts/p_add'>
+	<form name='postForm' method='POST' action='/posts/p_add' onsubmit='return validateFormPost();'>
 
     	<label for='content'>New Post:</label><br>
 		<textarea name='content' id='textbox'></textarea>
