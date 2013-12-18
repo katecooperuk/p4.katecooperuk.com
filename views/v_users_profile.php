@@ -2,15 +2,12 @@
 
 	<h2><?=$user->first_name?> <?=$user->last_name?>'s Profile</h2>
 
-    <?php if($user->avatar != ""): ?>
 	<img src="<?=$user->avatar; ?>" class='profile'>
-
-	<?php else: ?>
-	<img src='/uploads/default.gif'>
-	<div id="prompt">Upload your own avatar image</div>
-
-	<?php endif; ?>
-
+	
+	<?php if($user->avatar == "/core/images/placeholder.png"): ?>
+		<div id="prompt">Upload your own avatar image</div>
+	<?php endif;?>
+	
 	<form method='POST' action="/users/picture/" enctype="multipart/form-data" >
 	
 		<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
