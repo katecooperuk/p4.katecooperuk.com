@@ -33,3 +33,5 @@
 	
 		<?php endforeach;?>
 </div>
+
+<? echo Debug::dump($user,""); ?> 
